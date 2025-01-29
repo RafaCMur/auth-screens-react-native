@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Pressable, View, Text, TextInput, Alert } from "react-native";
 
 import Icon from "react-native-vector-icons/Feather";
 import { globalStyles } from "../utils/styles";
-import { isPasswordValid, isEmailValid } from "../utils/validations";
+import { hasPasswordErrors, isEmailValid } from "../utils/validations";
+import { AuthContext } from "../context/AuthContext";
 
 export function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ export function LoginScreen({ navigation }) {
   const [validEmail, setValidEmail] = useState(true);
   const [passwordError, setPasswordError] = useState("");
 
+  const { login } = useContext(AuthContext);
+
   const handleEmail = (email) => {
     setEmail(email);
     setValidEmail(isEmailValid(email));
@@ -19,22 +22,30 @@ export function LoginScreen({ navigation }) {
 
   const handlePassword = (password) => {
     setPassword(password);
-    const error = isPasswordValid(password);
+    const error = hasPasswordErrors(password);
     setPasswordError(error);
   };
 
   const handleLogin = () => {
-    const passwordValid = isPasswordValid(password);
+    const passwordError = hasPasswordErrors(password);
 
     if (!validEmail) {
       Alert.alert("Error", "Email format is invalid");
       return;
     }
 
-    if (!passwordValid) {
-      Alert.alert("Successful Login", passwordValid);
+    if (!passwordError) {
+      login(email);
+      Alert.alert(
+        "Successful Login",
+        "User: " + email + "\nPassword: " + password
+      );
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Dashboard" }],
+      });
     } else {
-      Alert.alert("Error", passwordValid);
+      Alert.alert("Error", passwordError);
     }
   };
 

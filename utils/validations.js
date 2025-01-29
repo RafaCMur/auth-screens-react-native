@@ -3,7 +3,7 @@
  * @param {*} password Password to validate
  * @returns null if the password is valid, an error message otherwise
  */
-export const isPasswordValid = (password) => {
+export const hasPasswordErrors = (password) => {
   if (!/^\S*$/.test(password)) return "Password must not contain whitespaces.";
   if (!/[A-Z]/.test(password))
     return "Password must have at least one uppercase letter.";
@@ -14,7 +14,7 @@ export const isPasswordValid = (password) => {
   if (!/^.{8,32}$/.test(password))
     return "Password must be between 8 and 32 characters long.";
 
-  return null; // Si no hay errores, devuelve null
+  return null;
 };
 
 /**

@@ -3,7 +3,7 @@ import { Pressable, View, Text, TextInput, Alert } from "react-native";
 
 import Icon from "react-native-vector-icons/Feather";
 import { globalStyles } from "../utils/styles";
-import { isPasswordValid, isEmailValid } from "../utils/validations";
+import { hasPasswordErrors, isEmailValid } from "../utils/validations";
 
 export function SignupScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export function SignupScreen({ navigation }) {
 
   const handlePassword = (password) => {
     setPassword(password);
-    const error = isPasswordValid(password);
+    const error = hasPasswordErrors(password);
     setPasswordError(error);
   };
 
