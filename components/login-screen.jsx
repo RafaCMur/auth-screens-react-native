@@ -27,26 +27,26 @@ export function LoginScreen({ navigation }) {
   };
 
   const handleLogin = () => {
-    const passwordError = hasPasswordErrors(password);
-
-    if (!validEmail) {
+    if (!isEmailValid(email)) {
       Alert.alert("Error", "Email format is invalid");
       return;
     }
 
-    if (!passwordError) {
-      login(email);
-      Alert.alert(
-        "Successful Login",
-        "User: " + email + "\nPassword: " + password
-      );
-      navigation.reset({
-        index: 0,
-        routes: [{ name: "Dashboard" }],
-      });
-    } else {
+    const passwordError = hasPasswordErrors(password); //Save it in a variable to avoid calling the function twice
+    if (passwordError) {
       Alert.alert("Error", passwordError);
+      return;
     }
+
+    login(email);
+    Alert.alert(
+      "Successful Login",
+      "User: " + email + "\nPassword: " + password
+    );
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Dashboard" }],
+    });
   };
 
   return (

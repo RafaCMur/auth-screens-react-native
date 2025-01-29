@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Pressable, View, Text, TextInput, Alert } from "react-native";
 
 import Icon from "react-native-vector-icons/Feather";
 import { globalStyles } from "../utils/styles";
 import { hasPasswordErrors, isEmailValid } from "../utils/validations";
+import { AuthContext } from "../context/AuthContext";
 
 export function SignupScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // Campo adicional para confirmar contraseña
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [seePassword, setSeePassword] = useState(true);
   const [validEmail, setValidEmail] = useState(true);
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
+  const { signup } = useContext(AuthContext);
 
   /**
    * Validates the email format
@@ -23,12 +26,20 @@ export function SignupScreen({ navigation }) {
     setValidEmail(isEmailValid(email));
   };
 
+  /**
+   * Validates the password
+   * @param {*} password Password to validate
+   */
   const handlePassword = (password) => {
     setPassword(password);
     const error = hasPasswordErrors(password);
     setPasswordError(error);
   };
 
+  /**
+   * Validates the confirm password
+   * @param {*} confirmPassword Confirm password to validate
+   */
   const handleConfirmPassword = (confirmPassword) => {
     setConfirmPassword(confirmPassword);
     if (confirmPassword !== password) {
@@ -38,28 +49,35 @@ export function SignupScreen({ navigation }) {
     }
   };
 
+  /**
+   * Handles the signup process, validating the fields. If everything is correct, it signs up the user
+   */
   const handleSignup = () => {
-    if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
-      Alert.alert("Error", "Fields cannot be empty");
-      return;
-    }
-
-    if (!validEmail) {
+    if (!isEmailValid(email)) {
       Alert.alert("Error", "Email format is invalid");
       return;
     }
 
+    const passwordError = hasPasswordErrors(password); //Save it in a variable to avoid calling the function twice
     if (passwordError) {
       Alert.alert("Error", passwordError);
       return;
     }
 
-    if (confirmPasswordError) {
-      Alert.alert("Error", confirmPasswordError);
+    if (confirmPassword !== password) {
+      Alert.alert("Error", "Passwords do not match.");
       return;
     }
 
-    Alert.alert("Signup Successful", `Welcome, ${email}!`);
+    signup(email);
+    Alert.alert(
+      "Successful Signup",
+      "User: " + email + "\nPassword: " + password
+    );
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "Dashboard" }],
+    });
   };
 
   return (

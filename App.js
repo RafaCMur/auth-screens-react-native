@@ -13,6 +13,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+
   return (
     <AuthProvider>
       <NavigationContainer>
@@ -35,6 +36,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#aff",
   },
 });

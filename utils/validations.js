@@ -4,6 +4,7 @@
  * @returns null if the password is valid, an error message otherwise
  */
 export const hasPasswordErrors = (password) => {
+  if (!password.trim()) return "Password cannot be empty.";
   if (!/^\S*$/.test(password)) return "Password must not contain whitespaces.";
   if (!/[A-Z]/.test(password))
     return "Password must have at least one uppercase letter.";
