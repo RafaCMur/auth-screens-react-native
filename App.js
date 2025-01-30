@@ -1,4 +1,5 @@
-import { StatusBar, StyleSheet, View } from "react-native";
+import React from "react";
+import { StyleSheet, StatusBar } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,8 +9,6 @@ import { SignupScreen } from "./components/signup-screen";
 import { HomeScreen } from "./components/home-screen";
 import { AuthProvider } from "./context/AuthContext";
 import { DashboardScreen } from "./components/dashboard";
-
-const Stack = createNativeStackNavigator();
 
 export default function App() {
   const Stack = createNativeStackNavigator();
