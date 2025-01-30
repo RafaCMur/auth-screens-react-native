@@ -47,11 +47,10 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Build Android APK # Start the Android build process
-        run: eas build -p android --profile production --non-interactive --output-format apk
+        run: eas build -p android --profile production --non-interactive
         # -p android → Specifies Android build
         # --profile production → Uses "production" settings from eas.json
         # --non-interactive → Runs without asking for user input (required for CI/CD)
-        # --output-format apk → Generates an APK file
 
   build-ios: # Job to build an iOS app
     runs-on: macos-latest # iOS builds require macOS
