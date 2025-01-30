@@ -19,10 +19,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.rafacmur.authscreensreactnative"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2e0547b2-fcb3-481c-b40b-8304ce920137"
+      }
+    },
+    "owner": "rafacmur"
   }
 }
