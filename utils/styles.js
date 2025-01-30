@@ -1,5 +1,12 @@
 import { StyleSheet } from "react-native";
 
+const baseButton = {
+  padding: 10,
+  borderRadius: 5,
+  alignItems: "center",
+  marginTop: 16,
+};
+
 export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -24,12 +31,17 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
-  button: {
+  primaryButton: {
+    ...baseButton,
     backgroundColor: "#007BFF",
-    padding: 10,
-    borderRadius: 5,
-    alignItems: "center",
-    marginTop: 16,
+  },
+  secondaryButton: {
+    ...baseButton,
+    backgroundColor: "#6c757d",
+  },
+  dangerButton: {
+    ...baseButton,
+    backgroundColor: "red",
   },
   buttonText: {
     color: "#fff",

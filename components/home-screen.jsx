@@ -9,7 +9,7 @@ export function HomeScreen({ navigation }) {
 
       {/* Navigate to Login */}
       <Pressable
-        style={globalStyles.button}
+        style={globalStyles.primaryButton}
         onPress={() => navigation.navigate("Login")}
       >
         <Text style={globalStyles.buttonText}>Go to Login</Text>
@@ -18,7 +18,7 @@ export function HomeScreen({ navigation }) {
       {/* Navigate to Signup */}
       <Pressable
         style={[
-          globalStyles.button,
+          globalStyles.secondaryButton,
           { marginTop: 16, backgroundColor: "#6c757d" },
         ]}
         onPress={() => navigation.navigate("Signup")}

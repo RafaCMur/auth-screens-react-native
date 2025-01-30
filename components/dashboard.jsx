@@ -19,10 +19,7 @@ export function DashboardScreen({ navigation }) {
       <Text style={globalStyles.title}>Dashboard</Text>
       <Text>Welcome, {user?.email}</Text>
 
-      <Pressable
-        style={[globalStyles.button, { marginTop: 16, backgroundColor: "red" }]}
-        onPress={handleLogout}
-      >
+      <Pressable style={globalStyles.dangerButton} onPress={handleLogout}>
         <Text style={globalStyles.buttonText}>Logout</Text>
       </Pressable>
     </View>

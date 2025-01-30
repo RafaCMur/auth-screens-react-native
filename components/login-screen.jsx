@@ -94,16 +94,13 @@ export function LoginScreen({ navigation }) {
       </View>
 
       {/* Login button */}
-      <Pressable style={globalStyles.button} onPress={handleLogin}>
+      <Pressable style={globalStyles.primaryButton} onPress={handleLogin}>
         <Text style={globalStyles.buttonText}>Login</Text>
       </Pressable>
 
       {/* Navigate to Signup */}
       <Pressable
-        style={[
-          globalStyles.button,
-          { marginTop: 16, backgroundColor: "#6c757d" },
-        ]}
+        style={globalStyles.secondaryButton}
         onPress={() => navigation.replace("Signup")}
       >
         <Text style={globalStyles.buttonText}>Go to Signup</Text>
