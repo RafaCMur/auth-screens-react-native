@@ -75,7 +75,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Build iOS App # Start the iOS build process
-        run: eas build -p ios --profile production --non-interactive
+        run: eas build -p ios --profile production --non-interactive --output-format apk
         # -p ios → Specifies iOS build
         # --profile production → Uses "production" settings from eas.json
         # --non-interactive → Runs without asking for user input (required for CI/CD)

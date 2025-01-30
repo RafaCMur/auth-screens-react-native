@@ -12,10 +12,7 @@
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true,
-      "android": {
-        "artifact": "apk"
-      }
+      "autoIncrement": true
     }
   },
   "submit": {
