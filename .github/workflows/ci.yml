@@ -34,19 +34,17 @@ jobs:
       - name: Install Node.js # Install Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Specifies Node.js version 18
+          node-version: 18
+          cache: npm
 
-      - name: Install dependencies # Install project dependencies from package.json
+      - name: Install dependencies # Install project dependencies
         run: npm install
 
-      - name: Install Expo CLI # Install Expo and EAS CLI globally
-        run: npm install -g expo-cli eas-cli
-
       - name: Login to Expo # Log in to Expo using a token stored in GitHub Secrets
-        run: eas login --token ${{ secrets.AUTH_SCREENS_REACT_NATIVE_TOKEN }}
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Build Android APK # Start the Android build process
         run: eas build -p android --profile production --non-interactive
-        # -p android → Specifies Android build
-        # --profile production → Uses "production" settings from eas.json
-        # --non-interactive → Runs without asking for user input (required for CI/CD)
