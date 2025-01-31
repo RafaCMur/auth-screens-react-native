@@ -52,6 +52,11 @@ jobs:
         # --profile production → Uses "production" settings from eas.json
         # --non-interactive → Runs without asking for user input (required for CI/CD)
 
+  ############################################################
+  # IOS build is not included in this example, because it requires macOS environment
+  # or an iphone simulator to run the built app.
+  ############################################################
+
   # build-ios: # Job to build an iOS app
   #   runs-on: macos-latest # iOS builds require macOS
 
