@@ -1,4 +1,5 @@
 For any questions, send an email to rafacabanillasm@gmail.com
+Find apk here: https://drive.google.com/drive/u/1/folders/1xPe4Q_BJ_Ak6eR-cnpQL3h8cFmChiGYG
 
 # Getting Started
 1. Clone the repository from Github
