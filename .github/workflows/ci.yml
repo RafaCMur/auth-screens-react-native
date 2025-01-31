@@ -24,6 +24,25 @@ jobs:
       - name: Run ESLint # Run ESLint to check for coding errors and style issues
         run: npx eslint . --ext .js,.jsx,.mjs || true # "|| true" prevents failure if errors exist
 
+  test: # Job to run tests using Jest
+    runs-on: ubuntu-latest # Runs on Ubuntu virtual machine
+
+    steps:
+      - name: Checkout code # Get the latest code from the repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js # Install Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
+
+      - name: Install dependencies # Install project dependencies
+        run: npm install
+
+      - name: Run tests # Execute Jest tests
+        run: npm run test
+
   build-android: # Job to build an Android APK
     runs-on: ubuntu-latest # Runs on an Ubuntu virtual machine
 
