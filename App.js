@@ -10,6 +10,9 @@ import { HomeScreen } from "./components/home-screen";
 import { AuthProvider } from "./context/AuthContext";
 import { DashboardScreen } from "./components/dashboard";
 
+/**
+ * App component - The main component of the application
+ */
 export default function App() {
   const Stack = createNativeStackNavigator();
 
@@ -32,6 +35,7 @@ export default function App() {
   );
 }
 
+// We use flex: 1 to make the container take up the entire screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,

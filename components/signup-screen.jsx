@@ -6,6 +6,13 @@ import { globalStyles } from "../utils/styles";
 import { hasPasswordErrors, isEmailValid } from "../utils/validations";
 import { AuthContext } from "../context/AuthContext";
 
+/**
+ * SignupScreen component. This screen allows the user to enter their email and
+ * password to sign up. It also contains a button that allows the user to navigate
+ * to the Login screen.
+ * @param {object} navigation - It is used to navigate between different screens.
+ * @returns {JSX.Element} SignupScreen component.
+ */
 export function SignupScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +22,7 @@ export function SignupScreen({ navigation }) {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
+  // Import the signup function from the AuthContext, which is used to sign up the user
   const { signup } = useContext(AuthContext);
 
   /**
@@ -27,8 +35,8 @@ export function SignupScreen({ navigation }) {
   };
 
   /**
-   * Validates the password
-   * @param {*} password Password to validate
+   * Validates the password.
+   * @param {*} password Password to validate.
    */
   const handlePassword = (password) => {
     setPassword(password);
@@ -37,8 +45,8 @@ export function SignupScreen({ navigation }) {
   };
 
   /**
-   * Validates the confirm password
-   * @param {*} confirmPassword Confirm password to validate
+   * Validates the confirm password field checking if it matches the password.
+   * @param {*} confirmPassword Confirm password to validate.
    */
   const handleConfirmPassword = (confirmPassword) => {
     setConfirmPassword(confirmPassword);
@@ -50,7 +58,9 @@ export function SignupScreen({ navigation }) {
   };
 
   /**
-   * Handles the signup process, validating the fields. If everything is correct, it signs up the user
+   * This function is called when the user presses the signup button. It checks if the
+   * email and password are valid and signs up the user if they are. Otherwise, it shows
+   * an error message.
    */
   const handleSignup = () => {
     if (!isEmailValid(email)) {

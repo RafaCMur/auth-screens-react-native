@@ -1,5 +1,6 @@
 /**
- * Validates the password
+ * Validates the password. It must contain at least one uppercase letter, one lowercase letter,
+ * one digit, and be between 8 and 32 characters long.
  * @param {*} password Password to validate
  * @returns null if the password is valid, an error message otherwise
  */
@@ -19,7 +20,7 @@ export const hasPasswordErrors = (password) => {
 };
 
 /**
- * Validates the email format
+ * Validates the email format, checking if it has the structure of an email.
  * @param {*} email Email to validate
  * @returns true if the email is valid, false otherwise
  */

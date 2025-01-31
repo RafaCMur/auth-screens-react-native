@@ -2,6 +2,13 @@ import React from "react";
 import { View, Text, Pressable } from "react-native";
 import { globalStyles } from "../utils/styles";
 
+/**
+ * HomeScreen component. This is the first screen that the user should see when
+ * they open the app for the first time. It contains two buttons that allow the
+ * user to navigate to the Login and Signup screens.
+ * @param {object} navigation - It is used to navigate between different screens.
+ * @returns {JSX.Element} HomeScreen component.
+ */
 export function HomeScreen({ navigation }) {
   return (
     <View style={globalStyles.container}>

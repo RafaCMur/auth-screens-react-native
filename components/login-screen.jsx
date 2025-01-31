@@ -6,6 +6,13 @@ import { globalStyles } from "../utils/styles";
 import { hasPasswordErrors, isEmailValid } from "../utils/validations";
 import { AuthContext } from "../context/AuthContext";
 
+/**
+ * LoginScreen component. This screen allows the user to enter their email and
+ * password to log in. It also contains a button that allows the user to navigate
+ * to the Signup screen.
+ * @param {object} navigation - It is used to navigate between different screens.
+ * @returns {JSX.Element} LoginScreen component.
+ */
 export function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,19 +20,35 @@ export function LoginScreen({ navigation }) {
   const [validEmail, setValidEmail] = useState(true);
   const [passwordError, setPasswordError] = useState("");
 
+  // Get the login function from the AuthContext, which will be used to log in the user
   const { login } = useContext(AuthContext);
 
+  /**
+   * This function is called when the user types in the email field. It updates the
+   * email state and checks if the email format is valid.
+   * @param {string} email - The email entered by the user.
+   */
   const handleEmail = (email) => {
     setEmail(email);
     setValidEmail(isEmailValid(email));
   };
 
+  /**
+   * This function is called when the user types in the password field. It updates the
+   * password state and checks if the password format is valid.
+   * @param {string} password - The password entered by the user.
+   */
   const handlePassword = (password) => {
     setPassword(password);
     const error = hasPasswordErrors(password);
     setPasswordError(error);
   };
 
+  /**
+   * This function is called when the user presses the login button. It checks if the
+   * email and password are valid and logs in the user if they are. Otherwise, it shows
+   * an error message.
+   */
   const handleLogin = () => {
     if (!isEmailValid(email)) {
       Alert.alert("Error", "Email format is invalid");

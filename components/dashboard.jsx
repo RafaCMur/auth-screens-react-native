@@ -3,9 +3,16 @@ import { View, Text, Pressable } from "react-native";
 import { globalStyles } from "../utils/styles";
 import { AuthContext } from "../context/AuthContext";
 
+/**
+ * Dashboard screen component
+ * @param {object} navigation - Navigation object to navigate between screens
+ */
 export function DashboardScreen({ navigation }) {
   const { user, logout } = useContext(AuthContext);
 
+  /**
+   * Closes the session and return to the Home screen (reset the navigation stack)
+   */
   const handleLogout = () => {
     logout();
     navigation.reset({
