@@ -64,8 +64,9 @@ npm run ios
 
 # Project Structure
 
-- **`components/`** → Reusable UI components.
-- **`screens/`** → App screens (Login, Signup, Home, Dashboard).
+- **`_test/`** → Contains very basic testing.
+- **`assets/`** → Images and other resources.
+- **`components/`** → App screens (Login, Signup, Home, Dashboard).
 - **`context/`** → Manages authentication state using Context API.
 - **`utils/`** → Helper functions (validations, styles, etc.).
 
