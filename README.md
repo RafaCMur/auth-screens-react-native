@@ -2,9 +2,11 @@ For any questions, send an email to rafacabanillasm@gmail.com
 
 - **Find apk here:** https://drive.google.com/drive/u/1/folders/1xPe4Q_BJ_Ak6eR-cnpQL3h8cFmChiGYG
 
-- **Good practices:** Find them visiting the file `good-practices.md` in the github repository
+- **Good practices:** Find them reviewing the file `good-practices.md` in the github repository
 
-- **Further improvements:** Find them visiting the file `further-improvements.md` in the github repository
+- **Further improvements:** Find them reviewing the file `further-improvements.md` in the github repository
+
+- **Managing and extending CI/CD pipeline:** Please review the file `managing-and-extending-ci-cd.md` in the github repository
 
 - **Github repository:** https://github.com/RafaCMur/auth-screens-react-native
 
