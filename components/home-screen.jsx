@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import { globalStyles } from "../utils/styles";
+import logo from "../assets/flower-logo-free-royalty.jpg";
 
 /**
  * HomeScreen component. This is the first screen that the user should see when
@@ -12,6 +13,15 @@ import { globalStyles } from "../utils/styles";
 export function HomeScreen({ navigation }) {
   return (
     <View style={globalStyles.container}>
+      {/* Logo */}
+      <View style={globalStyles.centeredContainer}>
+        <Image
+          source={logo}
+          style={{ width: 70, height: 70, marginBottom: 16 }}
+          resizeMode="contain"
+        />
+      </View>
+
       <Text style={globalStyles.title}>Welcome</Text>
 
       {/* Navigate to Login */}

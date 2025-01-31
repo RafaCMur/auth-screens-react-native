@@ -19,6 +19,12 @@ export const globalStyles = StyleSheet.create({
     marginBottom: 16,
     textAlign: "center",
   },
+  subtitle: {
+    fontSize: 18,
+    textAlign: "center",
+    color: "#666",
+    marginBottom: 20,
+  },
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
@@ -52,5 +58,28 @@ export const globalStyles = StyleSheet.create({
   },
   fieldContainer: {
     marginBottom: 16,
+  },
+  centeredContainer: {
+    alignItems: "center",
+  },
+  card: {
+    backgroundColor: "#f8f9fa",
+    padding: 16,
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3, // Para Android
+    marginBottom: 20,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+  cardText: {
+    fontSize: 14,
+    color: "#555",
   },
 });
